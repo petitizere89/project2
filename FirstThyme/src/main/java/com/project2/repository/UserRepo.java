@@ -14,6 +14,6 @@ public interface UserRepo extends JpaRepository<User, Integer> {
 	public List<User> findAll();
 	public User findByUsername(String username);
 	//public double getBalance(int user_id);
-	//public UserRoles getUser_Role(int user_id);
+	public UserRoles getUserById(int user_id);
 	
 }

@@ -54,4 +54,30 @@ public class UserService {
 		u.setUser_role(role);
 		//return u;
 	}
+	public User loginUser(String username, String password) {
+		User u = uDao.findByUsername(username);
+		if(u==null) {
+			return null;
+		}else {
+			if(!u.getPassword().equals(password)) {
+				return null;
+			}else {
+				return u;
+			}
+		}
+	}
+	public User displayUser(String username) {
+		User u = uDao.findByUsername(username);
+		if(u == null) {
+			return null;
+		}else {
+			return u;
+		}
+	}
+	public User getUserById(int id) {
+		return uDao.getById(id);
+	}
+	public User findByUsername(String username) {
+		return uDao.findByUsername(username);
+	}
 }

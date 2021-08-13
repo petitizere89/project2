@@ -33,5 +33,14 @@ public class UserContoller {
 			return new ResponseEntity<String>("Username or email was already taken", HttpStatus.CONFLICT);
 		}
 	}
+	@PostMapping("/login")
+	public ResponseEntity<User> loginUser(@RequestBody LinkedHashMap<String, String> user){
+		User u = uServ.loginUser(user.get("userName"), user.get("password"));
+		if(u==null) {
+			return new ResponseEntity<User>(u,HttpStatus.FORBIDDEN);
+		}
+		u.toString();
+		return new ResponseEntity<User>(u,HttpStatus.OK);
+	}
 	
 }
