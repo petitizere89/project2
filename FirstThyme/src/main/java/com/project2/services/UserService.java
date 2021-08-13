@@ -26,12 +26,18 @@ public class UserService {
 	//manager creates inventory system
 	//manager can adjust inventory
 	
-	public void createUser(User u) {
+	public boolean createUser(User u) {
 		//create shopping cart
 		//add roll
-		createShoppingCart(u);
-		addRollC(u);
-		uDao.save(u);
+		try {
+			createShoppingCart(u);
+			addRollC(u);
+			uDao.save(u);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+		
 	}
 	public void createShoppingCart(User u) {
 		Cart c = new Cart(u.getId());

@@ -2,6 +2,7 @@ package com.project2.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.project2.enums.ICategory;
@@ -19,6 +20,7 @@ import lombok.ToString;
 @Entity
 @Table(name="categories")
 public class Category {
+	@Id
 	@Column(name="category")
 	private ICategory category;
 

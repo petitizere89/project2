@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -39,7 +40,7 @@ public class User {
 	@Column(name="last_name", nullable=false)
 	private String lastName;
 	
-	@Column(name="email", nullable=false)
+	@Column(name="email", nullable=false, unique=true)
 	private String email;
 	
 	@Column(name="balance",nullable=false)
@@ -51,11 +52,12 @@ public class User {
 	@Column(name="password",nullable=false)
 	private String password;
 	
-	@Column(name="cart_id",nullable=false)
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="cart_id",nullable=false)
 	private Cart cart;
 	
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@Column(name ="user_role")
+	@JoinColumn(name ="user_role")
 	private UserRoles user_role;
 
 	//CREATE USER CONSTRUCTOR/signup
@@ -63,10 +65,10 @@ public class User {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.username = "" + firstName + lastName;
 		this.email = email;
+		this.balance = 1000.10;
 		this.password = password;
 	}
-	
-	
-	
+
 }
