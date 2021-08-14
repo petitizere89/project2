@@ -1,53 +1,52 @@
+<h1>Welcome to FirstThyme Shopping!</h1>
 
-    <h1>Welcome to FirstThyme Shopping!</h1>
+<div class="login-form">
+<form id = "login" (ngSubmit)="onSubmit()">
+    <label for="username" >Username</label>
+    <input id = "username" type = "text"  maxlength="50" required [(ngModel)]="username">
+    
+    <label for = "password">Password</label>
+    <input id="password" name = "password" type="password"  minlength="8" required  [(ngModel)]="password"> 
 
-    <div class="login-form">
-        <form id = "login" (ngSubmit)="onSubmit()">
-            <label for="username" >Username</label>
-            <input id = "username" type = "text"  maxlength="50" required [(ngModel)]="username">
-            
-            <label for = "password">Password</label>
-           <input id="password" name = "password" type="password"  minlength="8" required  [(ngModel)]="password"> 
-        
-            <input id = "login-btn" type = "submit" value = "Login"/>
-        </form>
+    <input id = "login-btn" type = "submit" value = "Login"/>
+</form>
 
-    </div>
+</div>
 
-     <div class="signup-form">
-   
-         <h2>FirstThyme Signup Form</h2>
-         
-         <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
-         
-         <div id="id01" class="modal">
-           <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-           <form class="modal-content" action="/action_page.php">
-             <div class="container">
-               <h1>Sign Up</h1>
-               <p>Please fill in this form to create an account.</p>
-               <hr>
-               <label id = "firstName" for="firstname"><b>First Name</b></label>
-               <input type="text" placeholder="Enter First Name" name="firstname" required>
+<div class="signup-form">
 
-               <label id = "lastName" for="lastname"><b>Last Name</b></label>
-               <input type="text" placeholder="Enter Last Name" name="email" required>
+  <h2>FirstThyme Signup Form</h2>
+  
+  <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
+  
+  <div id="id01" class="modal">
+    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+    <form class="modal-content" action="/action_page.php">
+      <div class="container">
+        <h1>Sign Up</h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
+        <label id = "firstName" for="firstname"><b>First Name</b></label>
+        <input type="text" placeholder="Enter First Name" name="firstname" required>
 
-               <label for="email"><b>Email</b></label>
-               <input type="text" placeholder="Enter Email" name="email" required>
-         
-               <label for="password"><b>Password</b></label>
-               <input type="password" placeholder="Enter Password" name="password" required>
-         
-               <label for="psw-repeat"><b>Repeat Password</b></label>
-               <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-         
-               <div class="clearfix">
-                 <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                 <button type="submit" class="signupbtn">Sign Up</button>
-               </div>
-             </div>
-           </form>
-         
-        </div> 
+        <label id = "lastName" for="lastname"><b>Last Name</b></label>
+        <input type="text" placeholder="Enter Last Name" name="email" required>
+
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required>
+  
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+  
+        <label for="psw-repeat"><b>Repeat Password</b></label>
+        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+  
+        <div class="clearfix">
+          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+          <button type="submit" class="signupbtn">Sign Up</button>
+        </div>
+      </div>
+    </form>
+  
+</div> 
 
