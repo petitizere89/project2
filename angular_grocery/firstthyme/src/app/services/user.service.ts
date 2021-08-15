@@ -22,6 +22,13 @@ export class UserService {
     }));
   }
 
+  signup(firstName:string, lastName:string, email:string, password: string): Observable<User>{
+    return this.http.post<User>("http://localhost:8080/users/signup", JSON.stringify({firstName, lastName, email, password}))
+    .pipe(catchError((e) => {
+      return throwError(e);
+    }));
+  }
+
 
   constructor(private http: HttpClient) { }
 }
