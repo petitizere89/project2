@@ -12,7 +12,8 @@ export class UserService {
 
   user:User = {
     id: 0,
-    username: ''
+    username: '',
+    
   }
 
   login(username:string, password: string): Observable<User>{
