@@ -3,7 +3,7 @@
   <div class="login-form">
   <form id = "login" (ngSubmit)="onSubmit()">
       <label for="username" >Username</label>
-      <input id = "username" type = "text"  maxlength="50" required [(ngModel)]="username">
+      <input name = "username" id = "username" type = "text"  maxlength="50" required [(ngModel)]="username">
       
       <label for = "password">Password</label>
       <input id="password" name = "password" type="password"  minlength="8" required  [(ngModel)]="password"> 
