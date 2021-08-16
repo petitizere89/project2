@@ -14,12 +14,15 @@ export class UserService {
 
   user:User = {
     id: 0,
-    username: '',
+    username: ''
     
   }
 
   login(username:string, password: string): Observable<User>{
-    return this.http.post<User>("http://localhost:8080/users/login", JSON.stringify({username, password}))
+    return this.http.post<User>("/home-page", JSON.stringify({username: username, password: password}),{ 
+    headers: {
+      'Content-Type': 'application/json'
+    }})
     .pipe(catchError((e) => {
       return throwError(e);
     }));
