@@ -25,8 +25,7 @@ export class LoginPageComponent implements OnInit {
         username: data.username
       }
       this.error = false;
-      //Is this the correct url?
-      this.router.navigateByUrl('/home-page');
+      this.router.navigateByUrl('/home');
     },
       (error) => this.error=true);
   }
