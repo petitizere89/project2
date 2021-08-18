@@ -29,7 +29,7 @@ import lombok.ToString;
 @Entity
 @Table(name="cart")
 public class Cart {
-	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	
 	@JoinColumn(name="user_id")
 	private int user_id;
 	
@@ -40,7 +40,6 @@ public class Cart {
 	
 	//could be problematic might need to be changed later
 	@OneToMany(mappedBy="item_id",cascade=CascadeType.ALL)
-	@JsonIgnore
 	private List<Items> items = new ArrayList<>();
 
 	public Cart(int user_id) {

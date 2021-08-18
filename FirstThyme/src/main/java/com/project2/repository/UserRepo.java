@@ -7,12 +7,13 @@ import org.springframework.stereotype.Repository;
 
 import com.project2.enums.URoles;
 import com.project2.models.User;
+import com.project2.models.UserRoles;
 
 @Repository
 public interface UserRepo extends JpaRepository<User, Integer> {
 	public List<User> findAll();
 	public User findByUsername(String username);
-	public double findUserBalance(int user_id);
-	public URoles getUserRole(int user_id);
+	//public double getBalance(int user_id);
+	public UserRoles getUserById(int user_id);
 	
 }
