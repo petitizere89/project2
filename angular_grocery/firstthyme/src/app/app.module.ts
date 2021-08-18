@@ -10,6 +10,7 @@ import { SignupPageComponent } from './components/signup-page/signup-page.compon
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { ServicesComponent } from './services/services.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginPageComponent,
     SignupPageComponent,
     HomePageComponent,
-    ServicesComponent
+    ServicesComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
