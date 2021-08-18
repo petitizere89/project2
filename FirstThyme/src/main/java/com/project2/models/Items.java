@@ -31,8 +31,10 @@ import lombok.ToString;
 public class Items {
 	@Id
 	@Column(name="item_id")
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int item_id;
+	
+	@Column(name="item_name")
+	private String item_name;
 	
 	@Column(name="price")
 	private double price;

@@ -23,6 +23,9 @@ public class Category {
 	
 	
 	@Id
+	@Column(name="category_id")
+	private int id;
+	
 	@Column(name="category")
 	private ICategory category;
 
