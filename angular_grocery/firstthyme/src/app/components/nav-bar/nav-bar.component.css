@@ -1,0 +1,41 @@
+:root{
+    --primary-color:rgb(235, 235, 235);
+    --secondary-color: rgb(220, 226, 170);
+    --third-color:  rgb(142, 208, 129);
+    --fourth-color: rgb(86, 95, 68);
+
+}
+
+nav{
+    position: fixed;
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--fourth-color);
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    margin: auto;
+    display: inline-block;
+    color: var( --primary-color);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: var(--fourth-color);
+  }
+  
+  li a:hover {
+    background-color: var(--secondary-color);
+    color: var(--fourth-color);
+  }
