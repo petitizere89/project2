@@ -60,16 +60,21 @@ public class UserContoller {
 		return new ResponseEntity<User>(u,HttpStatus.OK);
 	}
 	
-	@PostMapping("/updateuser")
+	@PostMapping("/update")
 	public ResponseEntity<String> updateUser(@RequestBody LinkedHashMap<String, String>user){
 		System.out.println(user);
 		User u = uServ.findByUsername(user.get("username"));
 		if(u==null) {
 			return new ResponseEntity<String>("username not found",HttpStatus.I_AM_A_TEAPOT);
 		}else {
+			if(user.get("newUsername")!=null) { u.setUsername(user.get("newUsername"));}
+			if(user.get("newFirstName")!=null) {u.setFirstName(user.get("newFirstName"));}
+			if(user.get("newLastName")!=null) {u.setLastName(user.get("newLastName"));}
+			if(user.get("newEmail")!=null) {u.setEmail(user.get("newEmail"));}
+			if(user.get("newPassword")!=null) {u.setPassword(user.get("newPassword"));}
+			
 			uServ.updateUser(u);
 			return new ResponseEntity<String>("user updated",HttpStatus.ACCEPTED);
-			
 		}//possible validation by doing u==username of u
 		
 	}
