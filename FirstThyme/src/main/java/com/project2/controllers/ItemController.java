@@ -21,7 +21,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 @RestController
-@RequestMapping(value="/users")
+@RequestMapping(value="/items")
 @NoArgsConstructor
 @AllArgsConstructor(onConstructor=@__(@Autowired))
 
@@ -31,7 +31,7 @@ public class ItemController {
 	
 	//this may cause issues/not work
 	@PostMapping("/createitem")
-	public ResponseEntity<Items> createItem(@RequestBody LinkedHashMap<String,String>item){
+	public ResponseEntity<String> createItem(@RequestBody LinkedHashMap<String,String>item){
 		Category cat = new Category();
 		switch(item.get("category")) {
 		case "MEAT":
@@ -56,8 +56,9 @@ public class ItemController {
 			cat.setCategory(ICategory.BAKERY);
 			break;
 		}
-		Items i = new Items(Integer.parseInt(item.get("itemId")),item.get("itemName"),Integer.parseInt(item.get("price")),item.get("description"),cat,Integer.parseInt(item.get("quantity")));
-		iServ.createItem(i);
-		return new ResponseEntity<Items>(i,HttpStatus.ACCEPTED);
+		Items i = new Items(Integer.parseInt(item.get("itemId")),item.get("itemName"),Double.parseDouble(item.get("price")),item.get("description"),cat,Integer.parseInt(item.get("quantity")));
+		System.out.println(i);
+        iServ.createItem(i);
+        return new ResponseEntity<String>("item created",HttpStatus.ACCEPTED);
 	}
 }

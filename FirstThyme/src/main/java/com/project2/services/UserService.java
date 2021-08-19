@@ -39,6 +39,15 @@ public class UserService {
 		}
 		
 	}
+	public boolean updateUser(User u) {
+		try {
+			uDao.save(u);
+			return true;
+			
+		}catch (Exception e) {
+			return false;
+		}
+	}
 	public void createShoppingCart(User u) {
 		Cart c = new Cart(u.getId());
 		u.setCart(c);
@@ -46,12 +55,12 @@ public class UserService {
 	}
 	public void addRollC(User u) {
 		UserRoles role = new UserRoles(URoles.CUSTOMER);
-		u.setUser_role(role);
+		u.setUserRole(role);
 		//return u;
 	}
 	public void addRollM(User u) {
 		UserRoles role = new UserRoles(URoles.MANAGER);
-		u.setUser_role(role);
+		u.setUserRole(role);
 		//return u;
 	}
 	public User loginUser(String username, String password) {

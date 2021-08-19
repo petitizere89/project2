@@ -17,8 +17,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.project2.enums.URoles;
 import com.project2.models.User;
+import com.project2.models.UserRoles;
 import com.project2.services.UserService;
 
 import lombok.AllArgsConstructor;
@@ -35,7 +36,8 @@ public class UserContoller {
 
 	@PostMapping("/signup")
 	public ResponseEntity<String> createUser(@RequestBody LinkedHashMap<String,String>user){
-		User u = new User(user.get("firstName"),user.get("lastName"),user.get("email"),user.get("password"));
+		UserRoles ur = new UserRoles(URoles.CUSTOMER);
+		User u = new User(user.get("firstName"),user.get("lastName"),user.get("email"),user.get("password"),ur);
 		if(uServ.createUser(u)) {
 			return new ResponseEntity<String>("User was registered",HttpStatus.CREATED);
 		}else {
@@ -56,6 +58,20 @@ public class UserContoller {
 		}
 		u.toString();
 		return new ResponseEntity<User>(u,HttpStatus.OK);
+	}
+	
+	@PostMapping("/updateuser")
+	public ResponseEntity<String> updateUser(@RequestBody LinkedHashMap<String, String>user){
+		System.out.println(user);
+		User u = uServ.findByUsername(user.get("username"));
+		if(u==null) {
+			return new ResponseEntity<String>("username not found",HttpStatus.I_AM_A_TEAPOT);
+		}else {
+			uServ.updateUser(u);
+			return new ResponseEntity<String>("user updated",HttpStatus.ACCEPTED);
+			
+		}//possible validation by doing u==username of u
+		
 	}
 	
 }
