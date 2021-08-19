@@ -3,10 +3,9 @@ package com.project2.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.project2.enums.URoles;
+
 import com.project2.models.Cart;
 import com.project2.models.User;
-import com.project2.models.UserRoles;
 import com.project2.repository.UserRepo;
 
 import lombok.AllArgsConstructor;
@@ -31,10 +30,11 @@ public class UserService {
 		//add roll
 		try {
 			createShoppingCart(u);
-			addRollC(u);
+			//addRollC(u); SEE COMMENT ON LINE 58 FOR REASONING
 			uDao.save(u);
 			return true;
 		} catch (Exception e) {
+			e.printStackTrace();
 			return false;
 		}
 		
@@ -53,16 +53,20 @@ public class UserService {
 		u.setCart(c);
 		//return u;
 	}
-	public void addRollC(User u) {
-		UserRoles role = new UserRoles(URoles.CUSTOMER);
-		u.setUserRole(role);
-		//return u;
-	}
-	public void addRollM(User u) {
-		UserRoles role = new UserRoles(URoles.MANAGER);
-		u.setUserRole(role);
-		//return u;
-	}
+
+	/*
+	 * NOT NEEDED ANY MORE....IS DONE IN USER CONTROLLER 
+	 * public void addRollC(User u) { 
+	 * 	UserRoles role = new
+	 * 	UserRoles(URoles.CUSTOMER); 
+	 * u.setUserRole(role); //return u;
+	 *  } 
+	 * public voidaddRollM(User u) {
+	 *  UserRoles role = new UserRoles(URoles.MANAGER);
+	 *  u.setUserRole(role); 
+	 *  //return u; 
+	 *  }
+	 */
 	public User loginUser(String username, String password) {
 		User u = uDao.findByUsername(username);
 		if(u==null) {
