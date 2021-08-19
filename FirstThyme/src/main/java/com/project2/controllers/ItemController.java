@@ -24,7 +24,6 @@ import lombok.NoArgsConstructor;
 @RequestMapping(value="/items")
 @NoArgsConstructor
 @AllArgsConstructor(onConstructor=@__(@Autowired))
-
 @CrossOrigin(value = "*")
 public class ItemController {
 	private ItemService iServ;
@@ -57,6 +56,21 @@ public class ItemController {
 			break;
 		}
 		Items i = new Items(Integer.parseInt(item.get("itemId")),item.get("itemName"),Double.parseDouble(item.get("price")),item.get("description"),cat,Integer.parseInt(item.get("quantity")));
+		System.out.println(i);
+        iServ.createItem(i);
+        return new ResponseEntity<String>("item created",HttpStatus.ACCEPTED);
+	}
+	@PostMapping("/updateitem")
+	public ResponseEntity<String> updateItem(@RequestBody LinkedHashMap<String,String>item){
+		Items i = iServ.findById(Integer.parseInt(item.get("itemId")));
+		if(i == null) {
+			return new ResponseEntity<String>("item not found", HttpStatus.BAD_REQUEST);
+		}else {
+			if(item.get("itemName")!=null) {i.setItemName(item.get("itemName"));}
+			if(item.get("price")!=null) {i.setPrice(Double.parseDouble(item.get("itemPrice")));}
+			if(item.get("description")!=null) {i.setDescription(item.get("description"));}
+			if(item.get("quantity")!=null) {i.setQuantity(Integer.parseInt(item.get("quantity")));}
+		}
 		System.out.println(i);
         iServ.createItem(i);
         return new ResponseEntity<String>("item created",HttpStatus.ACCEPTED);

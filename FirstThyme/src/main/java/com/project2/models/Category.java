@@ -20,10 +20,8 @@ import lombok.ToString;
 @Entity
 @Table(name="categories")
 public class Category {
-	@Id
-	@Column(name="category_id")
-	private int id;
 	
+	@Id
 	@Column(name="category")
 	private ICategory category;
 

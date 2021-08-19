@@ -65,4 +65,12 @@ public class ItemService {
 			return i;
 		}
 	}
+	public Items findById(int id) {
+		Items i = iDao.findById(id);
+		if(i==null) {
+			return null;
+		}else {
+			return i;
+		}
+	}
 }
