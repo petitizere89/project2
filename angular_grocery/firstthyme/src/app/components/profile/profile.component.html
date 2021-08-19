@@ -1,0 +1,36 @@
+<div class="card-container">
+    <h2 style="text-align:center">User Profile Card</h2>
+
+    <div class="card">
+        <h1 class = "user">Insert Customer</h1>
+        <hr>
+        <p class="email">Insert email</p>
+        <p class = "username">insert username</p>
+        <p><button>Update Profile</button></p>
+    </div>
+</div>
+
+<div class="card-container">
+    <h2 style="text-align:center">User Profile Card</h2>
+
+    <div class="update-card">
+        <form id = "update-form" class = "update-form">
+            <h3>Update respective field</h3>
+            <hr>
+            <!-- Add first and last name options? -->
+            <label for="newUsername">Username</label>
+            <input name = "newUsername" id = "newUsername" type = "text"  maxlength="50" required>
+
+            <label for="newEmail">Email</label>
+            <input name = "newEmail" id = "newEmail" type = "text"  maxlength="50" required>
+
+            <label for="newPassword">Password</label>
+            <input name = "newPassword" id = "newPassword" type = "password"  maxlength="50" required>
+            
+            <label for="newPasswordConfirm">Retype Password</label>
+            <input name = "newPasswordConfirm" id = "newPasswordConfirm" type = "password"  maxlength="50" required>
+            <p><button class = "update-btn">Update Profile</button></p>
+        </form>
+    </div>
+</div>
+<!-- use a form to update certain fields -->
