@@ -31,10 +31,10 @@ import lombok.ToString;
 public class Items {
 	@Id
 	@Column(name="item_id")
-	private int item_id;
+	private int itemId;
 	
 	@Column(name="item_name")
-	private String item_name;
+	private String itemName;
 	
 	@Column(name="price")
 	private double price;
