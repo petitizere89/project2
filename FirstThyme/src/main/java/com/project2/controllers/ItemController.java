@@ -56,7 +56,7 @@ public class ItemController {
 			cat.setCategory(ICategory.BAKERY);
 			break;
 		}
-		Items i = new Items(Integer.parseInt(item.get("item_id")),item.get("item_name"),Integer.parseInt(item.get("price")),item.get("description"),cat,Integer.parseInt(item.get("quantity")));
+		Items i = new Items(Integer.parseInt(item.get("itemId")),item.get("itemName"),Integer.parseInt(item.get("price")),item.get("description"),cat,Integer.parseInt(item.get("quantity")));
 		iServ.createItem(i);
 		return new ResponseEntity<Items>(i,HttpStatus.ACCEPTED);
 	}

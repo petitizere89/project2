@@ -11,9 +11,9 @@ import com.project2.models.Items;
 public interface ItemRepo extends JpaRepository<Items, Integer>{
 	public List<Items> findAll();
 	public Items findById(int id);
-	public Items findByitem_name(String name);
-	public Items getItemPrice(int id);
-	public Items getItemDescription(int id);
-	public Items getItemCategory(int id);
-	public Items getItemQuantity(int id);
+	public Items findByItemName(String name);
+//	public Items getItemPrice(int id);
+//	public Items getItemDescription(int id);
+//	public Items getItemCategory(int id);
+//	public Items getItemQuantity(int id);
 }
