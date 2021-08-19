@@ -58,7 +58,7 @@ public class User {
 	
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name ="user_role")
-	private UserRoles user_role;
+	private UserRoles userRole;
 
 	//CREATE USER CONSTRUCTOR/signup
 	public User(String firstName, String lastName, String email, String password) {
@@ -70,5 +70,14 @@ public class User {
 		this.balance = 1000.10;
 		this.password = password;
 	}
-
+	public User(String firstName, String lastName, String email, String password, UserRoles userRole) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.username = "" + firstName + lastName;
+		this.email = email;
+		this.balance = 1000.10;
+		this.password = password;
+		this.userRole = userRole;
+	}
 }
