@@ -17,9 +17,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project2.enums.URoles;
 import com.project2.models.User;
-import com.project2.models.UserRoles;
+
 import com.project2.services.UserService;
 
 import lombok.AllArgsConstructor;
@@ -36,8 +35,9 @@ public class UserContoller {
 
 	@PostMapping("/signup")
 	public ResponseEntity<String> createUser(@RequestBody LinkedHashMap<String,String>user){
-		UserRoles ur = new UserRoles(URoles.CUSTOMER);
-		User u = new User(user.get("firstName"),user.get("lastName"),user.get("email"),user.get("password"),ur);
+		
+		User u = new User(user.get("firstName"),user.get("lastName"),user.get("email"),user.get("password"),"CUSTOMER");
+		//User u = new User(user.get("firstName"),user.get("lastName"),user.get("email"),user.get("password"),"MANAGER");
 		if(uServ.createUser(u)) {
 			return new ResponseEntity<String>("User was registered",HttpStatus.CREATED);
 		}else {
