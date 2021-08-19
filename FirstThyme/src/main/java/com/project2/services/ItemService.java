@@ -27,36 +27,36 @@ public class ItemService {
 			e.printStackTrace();
 		}
 	}
-	public void addRollMeat(Items i) {
-	 Category role = new Category(1,ICategory.MEAT);
-	 i.setCategory(role);
-		//return u;
-	}
-	public void addRollFruit(Items i) {
-		 Category role = new Category(2,ICategory.FRUIT);
-		 i.setCategory(role);
-			//return u;
-	}
-	public void addRollVegetables(Items i) {
-		 Category role = new Category(3,ICategory.VEGETABLES);
-		 i.setCategory(role);
-	}
-	public void addRollHerb(Items i) {
-		 Category role = new Category(4,ICategory.HERB);
-		 i.setCategory(role);
-	}
-	public void addRollBread(Items i) {
-		 Category role = new Category(5,ICategory.BREAD);
-		 i.setCategory(role);
-	}
-	public void addRollFrozen(Items i) {
-		 Category role = new Category(6,ICategory.FROZEN);
-		 i.setCategory(role);
-	}
-	public void addRollBakery(Items i) {
-		 Category role = new Category(7,ICategory.BAKERY);
-		 i.setCategory(role);
-	}
+//	public void addRollMeat(Items i) {
+//	 Category role = new Category(1,ICategory.MEAT);
+//	 i.setCategory(role);
+//		//return u;
+//	}
+//	public void addRollFruit(Items i) {
+//		 Category role = new Category(2,ICategory.FRUIT);
+//		 i.setCategory(role);
+//			//return u;
+//	}
+//	public void addRollVegetables(Items i) {
+//		 Category role = new Category(3,ICategory.VEGETABLES);
+//		 i.setCategory(role);
+//	}
+//	public void addRollHerb(Items i) {
+//		 Category role = new Category(4,ICategory.HERB);
+//		 i.setCategory(role);
+//	}
+//	public void addRollBread(Items i) {
+//		 Category role = new Category(5,ICategory.BREAD);
+//		 i.setCategory(role);
+//	}
+//	public void addRollFrozen(Items i) {
+//		 Category role = new Category(6,ICategory.FROZEN);
+//		 i.setCategory(role);
+//	}
+//	public void addRollBakery(Items i) {
+//		 Category role = new Category(7,ICategory.BAKERY);
+//		 i.setCategory(role);
+//	}
 	public Items getItemById(int id) {
 		Items i = iDao.findById(id);
 		if(i==null) {

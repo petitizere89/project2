@@ -31,20 +31,20 @@ import lombok.ToString;
 public class Cart {
 	
 	@JoinColumn(name="user_id")
-	private int user_id;
+	private int userId;
 	
 	@Id
 	@Column(name="cart_id")
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int cart_id;
+	private int cartId;
 	
 	//could be problematic might need to be changed later
-	@OneToMany(mappedBy="item_id",cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="itemId",cascade=CascadeType.ALL)
 	private List<Items> items = new ArrayList<>();
 
 	public Cart(int user_id) {
 		super();
-		this.user_id = user_id;
+		this.userId = user_id;
 		this.items = new ArrayList<>();
 	}
 	
