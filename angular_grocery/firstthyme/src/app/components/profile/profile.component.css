@@ -6,6 +6,7 @@
     max-width: 300px;
     margin: auto;
     text-align: center;
+    border-radius: 5px;
   }
   
   .title {
@@ -24,6 +25,7 @@
     cursor: pointer;
     width: 100%;
     font-size: 18px;
+    border-radius: 3px;
   }
   
   a {
@@ -37,18 +39,30 @@
   }
 
   label{
-      padding: 10px;
+      margin: 10px 0px 10px 0px;
+      display: inline-block; 
+      
   }
 
   .update-card{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 300px;
-    height: 200px;
+    height: 100%;
     margin: auto;
     text-align: center;
   }
   .update-form{
-      /* margin: 50px; */
-      margin: 10px 75px;
-      padding: 15px 5px;
+    margin: 10px 75px;
+    width: 49%;
+    padding: 16px 2px;
+  }
+
+  .update-btn{
+    width: 100%;
+    display: inline-block;
+  }
+
+  hr{
+    border: 0.5px solid var(--fourth-color);
+    margin-bottom: 15px;
   }

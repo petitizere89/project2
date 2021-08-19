@@ -17,8 +17,8 @@ export class UserService {
     
   }
 
-  login(username:string, password: string): Observable<User>{
-    return this.http.post<User>("http://localhost:8080/users/login", JSON.stringify({username: username, password: password}),{ 
+  login(username:string, password: string, userRole: string): Observable<User>{
+    return this.http.post<User>("http://localhost:8080/users/login", JSON.stringify({username: username, password: password, userRole: userRole}),{ 
     headers: {
       'Content-Type': 'application/json'
     }})
