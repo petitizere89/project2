@@ -32,6 +32,7 @@ import lombok.ToString;
 public class Items {
 	@Id
 	@Column(name="item_id")
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int itemId;
 	
 	@Column(name="item_name")
