@@ -13,6 +13,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ManagerHomeComponent } from './components/manager-home/manager-home.component';
+import { CartComponent } from './components/cart/cart.component';
+import { NavBarManagerComponent } from './components/nav-bar-manager/nav-bar-manager.component';
+import { InventoryComponent } from './components/inventory/inventory.component';
 
 
 @NgModule({
@@ -25,7 +28,10 @@ import { ManagerHomeComponent } from './components/manager-home/manager-home.com
     ServicesComponent,
     NavBarComponent,
     ProfileComponent,
-    ManagerHomeComponent
+    ManagerHomeComponent,
+    CartComponent,
+    NavBarManagerComponent,
+    InventoryComponent
   ],
   imports: [
     BrowserModule,
