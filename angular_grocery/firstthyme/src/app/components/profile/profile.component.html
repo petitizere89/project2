@@ -1,3 +1,4 @@
+<nav-bar></nav-bar>
 <div class="card-container">
     <h2 style="text-align:center">User Profile Card</h2>
 
@@ -6,11 +7,11 @@
         <hr>
         <p class="email">Insert email</p>
         <p class = "username">insert username</p>
-        <p><button>Update Profile</button></p>
+        <p><button (click) = "toogleTag()" >Update Profile</button></p>
     </div>
 </div>
 
-<div class="card-container">
+<div *ngIf = "show" class="card-container">
     <h2 style="text-align:center">User Profile Card</h2>
 
     <div class="update-card">
@@ -33,4 +34,4 @@
         </form>
     </div>
 </div>
-<!-- use a form to update certain fields -->
+

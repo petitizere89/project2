@@ -38,6 +38,7 @@ export class LoginPageComponent implements OnInit {
     },
       (error) => this.error=true);
   }
+  
 
   ngOnInit(): void {
   }

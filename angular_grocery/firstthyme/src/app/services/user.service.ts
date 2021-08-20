@@ -28,8 +28,8 @@ export class UserService {
   }
 
 
-  signup(firstName:string, lastName:string, email:string, password: string): Observable<User>{
-    return this.http.post<User>("http://localhost:8080/users/signup", JSON.stringify({firstName, lastName, email, password}),{ 
+  signup(firstName:string, lastName:string, email:string, password: string): Observable<String>{
+    return this.http.post<String>("http://localhost:8080/users/signup", JSON.stringify({firstName, lastName, email, password}),{ 
         headers: {
           'Content-Type': 'application/json'
         }})
