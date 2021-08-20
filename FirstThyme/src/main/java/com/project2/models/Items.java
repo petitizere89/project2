@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -48,5 +49,17 @@ public class Items {
 	
 	@Column(name="quantity")
 	private int quantity;
+	
+	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="cart_id", nullable=true)
+	private Cart cart;
 
+	public Items(String itemName, double price, String description, Category category, int quantity) {
+		super();
+		this.itemName = itemName;
+		this.price = price;
+		this.description = description;
+		this.category = category;
+		this.quantity = quantity;
+	}
 }

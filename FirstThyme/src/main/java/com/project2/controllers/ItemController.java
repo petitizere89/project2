@@ -55,7 +55,7 @@ public class ItemController {
 			cat.setCategory(ICategory.BAKERY);
 			break;
 		}
-		Items i = new Items(Integer.parseInt(item.get("itemId")),item.get("itemName"),Double.parseDouble(item.get("price")),item.get("description"),cat,Integer.parseInt(item.get("quantity")));
+		Items i = new Items(item.get("itemName"),Double.parseDouble(item.get("price")),item.get("description"),cat,Integer.parseInt(item.get("quantity")));
 		System.out.println(i);
         iServ.createItem(i);
         return new ResponseEntity<String>("item created",HttpStatus.ACCEPTED);
@@ -75,4 +75,8 @@ public class ItemController {
         iServ.createItem(i);
         return new ResponseEntity<String>("item created",HttpStatus.ACCEPTED);
 	}
+	/*
+	@GetMapping("/getitems")
+	public ResponseEntity<>
+	*/
 }
