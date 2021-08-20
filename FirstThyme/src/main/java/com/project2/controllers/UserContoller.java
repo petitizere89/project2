@@ -36,8 +36,8 @@ public class UserContoller {
 	@PostMapping("/signup")
 	public ResponseEntity<String> createUser(@RequestBody LinkedHashMap<String,String>user){
 		
-		User u = new User(user.get("firstName"),user.get("lastName"),user.get("email"),user.get("password"),"CUSTOMER");
-		//User u = new User(user.get("firstName"),user.get("lastName"),user.get("email"),user.get("password"),"MANAGER");
+		//User u = new User(user.get("firstName"),user.get("lastName"),user.get("email"),user.get("password"),"CUSTOMER");
+		User u = new User(user.get("firstName"),user.get("lastName"),user.get("email"),user.get("password"),"MANAGER");
 		if(uServ.createUser(u)) {
 			return new ResponseEntity<String>("User was registered",HttpStatus.CREATED);
 		}else {

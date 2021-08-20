@@ -38,6 +38,8 @@ public class CartController {
 		if(u==null || i==null) {
 			return new ResponseEntity<String>("Failed to Grab either user or item",HttpStatus.CONFLICT);
 		}
+		i.setCart(u.getCart());
+		iServ.updateItem(i);
 		cServ.addItem(u, i);
 		return new ResponseEntity<String> ("item added to cart",HttpStatus.OK);
 	}

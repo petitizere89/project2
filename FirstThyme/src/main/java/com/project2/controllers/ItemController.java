@@ -1,11 +1,14 @@
 package com.project2.controllers;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -72,11 +75,14 @@ public class ItemController {
 			if(item.get("quantity")!=null) {i.setQuantity(Integer.parseInt(item.get("quantity")));}
 		}
 		System.out.println(i);
-        iServ.createItem(i);
+        iServ.updateItem(i);
         return new ResponseEntity<String>("item created",HttpStatus.ACCEPTED);
 	}
-	/*
+	
 	@GetMapping("/getitems")
-	public ResponseEntity<>
-	*/
+	public ResponseEntity<List<Items>> getAllItems(){
+		return new ResponseEntity<List<Items>>(iServ.getAllItems() , HttpStatus.ACCEPTED);
+	}
+	
+	
 }
