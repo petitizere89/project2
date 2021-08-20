@@ -49,7 +49,5 @@ export class UserService {
     }));
   }
 
-  //Add view all items method 
-
    constructor(private http: HttpClient) { }
 }
