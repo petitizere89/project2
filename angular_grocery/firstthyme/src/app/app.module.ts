@@ -16,6 +16,7 @@ import { ManagerHomeComponent } from './components/manager-home/manager-home.com
 import { CartComponent } from './components/cart/cart.component';
 import { NavBarManagerComponent } from './components/nav-bar-manager/nav-bar-manager.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
+import { UserService } from './services/user.service';
 
 
 @NgModule({
