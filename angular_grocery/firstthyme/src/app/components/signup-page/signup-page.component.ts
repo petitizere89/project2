@@ -21,16 +21,14 @@ export class SignupPageComponent implements OnInit {
     console.log(this.firstName, this.lastName, this.email, this.password);
     this.userService.signup(this.firstName, this.lastName, this.email, this.password)
       .subscribe(data => {this.userService.user = {
-        id: data.id,
-        firstName: data.firstName,
-        lastName: data.lastName,
-        email: data.email,
-        // username: data.username,
-        password: data.password
+        // id: data.id,
+        // firstName: data.firstName,
+        // lastName: data.lastName,
+        // email: data.email,
+        // password: data.password
       }
       this.error = false;
-      //Is this the correct url?
-      this.router.navigateByUrl('/home');
+      this.router.navigate(['/home']);
     },
       (error) => this.error=true);
   }
