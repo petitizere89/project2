@@ -84,5 +84,13 @@ public class ItemController {
 		return new ResponseEntity<List<Items>>(iServ.getAllItems() , HttpStatus.ACCEPTED);
 	}
 	
+	@GetMapping("/getoneitem")
+	public ResponseEntity<Items> getItemById(int id){
+		Items i = iServ.getItemById(id);
+		if(i ==null) {
+			return new ResponseEntity<Items>(i,HttpStatus.BAD_REQUEST);
+		}
+		return new ResponseEntity<Items>(i,HttpStatus.OK);
+	}
 	
 }
