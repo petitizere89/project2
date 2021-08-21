@@ -18,6 +18,16 @@ import { NavBarManagerComponent } from './components/nav-bar-manager/nav-bar-man
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { UserService } from './services/user.service';
 
+export class inventory {
+  constructor(
+    public itemName: string,
+    public price: number,
+    public description: string,
+    public category: null,
+    public quantity: number
+  ) {
+  }
+}
 
 @NgModule({
   declarations: [
