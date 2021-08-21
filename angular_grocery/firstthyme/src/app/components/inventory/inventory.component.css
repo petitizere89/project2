@@ -1,5 +1,5 @@
 .card-container{
-    /* margin: 30px 75px; */
-    margin: 10px 20px;
-    display: inherit;
+  margin:0;
+  display: flexbox;
+  justify-content: space-between;
   }
