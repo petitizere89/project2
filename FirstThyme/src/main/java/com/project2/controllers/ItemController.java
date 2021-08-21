@@ -57,6 +57,8 @@ public class ItemController {
 		case "BAKERY":
 			cat.setCategory(ICategory.BAKERY);
 			break;
+		default : 
+			return new ResponseEntity<String>("incorrect category for item recieved", HttpStatus.BAD_REQUEST);
 		}
 		Items i = new Items(item.get("itemName"),Double.parseDouble(item.get("price")),item.get("description"),cat,Integer.parseInt(item.get("quantity")));
 		System.out.println(i);
@@ -72,11 +74,11 @@ public class ItemController {
 			if(item.get("itemName")!=null) {i.setItemName(item.get("itemName"));}
 			if(item.get("price")!=null) {i.setPrice(Double.parseDouble(item.get("itemPrice")));}
 			if(item.get("description")!=null) {i.setDescription(item.get("description"));}
-			if(item.get("quantity")!=null) {i.setQuantity(Integer.parseInt(item.get("quantity")));}
+			if(item.get("quantity")!=null) {i.setQuantity(i.getQuantity()+Integer.parseInt(item.get("quantity")));}
 		}
 		System.out.println(i);
         iServ.updateItem(i);
-        return new ResponseEntity<String>("item created",HttpStatus.ACCEPTED);
+        return new ResponseEntity<String>("item updated successfully",HttpStatus.ACCEPTED);
 	}
 	
 	@GetMapping("/getitems")

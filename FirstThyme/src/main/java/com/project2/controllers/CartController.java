@@ -31,7 +31,7 @@ public class CartController {
 	private UserService uServ;
 	private ItemService iServ;
 	
-	@PostMapping(value="/addItem")
+	@PostMapping(value="/additem")
 	public ResponseEntity<String> addItem(@RequestBody LinkedHashMap<String,String>req){
 		User u = uServ.getUserById(Integer.parseInt(req.get("userId")));
 		Items i = iServ.getItemById(Integer.parseInt(req.get("itemId")));
