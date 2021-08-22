@@ -77,9 +77,27 @@ additem(username: any, itemId: number){
   .subscribe(() => true);
 } 
 
+upateItem(itemName: string, quantity: number){
+  return this.httpClient.post<String>("http://localhost:8080/items/updateitem", JSON.stringify({itemName, quantity}),{
+    headers:{
+      'Content-Type': 'application/json',
+    }
+  })
+  .pipe(catchError((e) => {
+    return throwError(e);
+  }))
+  .subscribe(() => true);
+  this.getitems();
+}
+
 
   onSubmit(): void{
-    this.createItem(this.itemName,this.price,this.description, this.category, this.quantity);
+    if((this.price ==0)&&(this.description =='')){
+      this.upateItem( this.itemName,this.quantity );
+    }else{
+      this.createItem(this.itemName,this.price,this.description, this.category, this.quantity);
+  
+    }
     this.router.navigateByUrl('/managerhome');
   }
 
