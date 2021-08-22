@@ -59,9 +59,7 @@ public class ItemController {
 //		default : 
 //			return new ResponseEntity<String>("incorrect category for item recieved", HttpStatus.BAD_REQUEST);
 //		}
-
 		Items i = new Items(item.get("itemName"),Double.parseDouble(item.get("price")),item.get("description"),item.get("category"),Integer.parseInt(item.get("quantity")));
-
 		System.out.println(i);
         iServ.createItem(i);
         return new ResponseEntity<String>("item created",HttpStatus.ACCEPTED);
