@@ -39,6 +39,7 @@ public class CartController {
 	
 	@PostMapping(value="/additem")
 	public ResponseEntity<String> addItem(@RequestBody LinkedHashMap<String,String>req){
+		System.out.println("testing cart");
 		User u = uServ.getUserById(Integer.parseInt(req.get("userId")));
 		Items i = iServ.getItemById(Integer.parseInt(req.get("itemId")));
 		if(u==null || i==null) {
