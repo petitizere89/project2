@@ -66,13 +66,14 @@ public class ItemController {
 	}
 	@PostMapping("/updateitem")
 	public ResponseEntity<String> updateItem(@RequestBody LinkedHashMap<String,String>item){
-		Items i = iServ.findById(Integer.parseInt(item.get("itemId")));
+		//Items i = iServ.findById(Integer.parseInt(item.get("itemId")));
+		Items i = iServ.getItemByName(item.get("itemName"));
 		if(i == null) {
 			return new ResponseEntity<String>("item not found", HttpStatus.BAD_REQUEST);
 		}else {
-			if(item.get("itemName")!=null) {i.setItemName(item.get("itemName"));}
-			if(item.get("price")!=null) {i.setPrice(Double.parseDouble(item.get("itemPrice")));}
-			if(item.get("description")!=null) {i.setDescription(item.get("description"));}
+//			if(item.get("itemName")!=null) {i.setItemName(item.get("itemName"));}
+//			if(item.get("price")!=null) {i.setPrice(Double.parseDouble(item.get("itemPrice")));}
+//			if(item.get("description")!=null) {i.setDescription(item.get("description"));}
 			if(item.get("quantity")!=null) {i.setQuantity(i.getQuantity()+Integer.parseInt(item.get("quantity")));}
 		}
 		System.out.println(i);

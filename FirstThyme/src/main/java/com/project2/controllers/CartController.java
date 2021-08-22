@@ -39,7 +39,7 @@ public class CartController {
 	
 	@PostMapping(value="/additem")
 	public ResponseEntity<String> addItem(@RequestBody LinkedHashMap<String,String>req){
-		User u = uServ.getUserById(Integer.parseInt(req.get("userId")));
+		User u = uServ.getByUsername(req.get("username"));
 		Items i = iServ.getItemById(Integer.parseInt(req.get("itemId")));
 		if(u==null || i==null) {
 			return new ResponseEntity<String>("Failed to Grab either user or item",HttpStatus.CONFLICT);

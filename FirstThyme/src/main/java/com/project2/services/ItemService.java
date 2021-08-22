@@ -83,4 +83,7 @@ public class ItemService {
 	public List<Items> getAllByCartId(Cart cartId){
 		return iDao.findAllByCart(cartId);
 	}
+	public Items getItemByName(String name) {
+		return iDao.findByItemName(name);
+	}
 }
