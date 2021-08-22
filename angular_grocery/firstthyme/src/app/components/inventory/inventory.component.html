@@ -11,13 +11,15 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let items of items">
+        <tr [ngClass] = 'items'>
           <td><span>{{items.itemName}}</span></td>
           <td><span>{{items.price}}</span></td>
           <td><span>{{items.description}}</span></td>
           <td><span>{{items.category}}</span></td>
           <td><span>{{items.quantity}}</span></td>
+          <td><button >Add Item</button></td>
         </tr>
         </tbody>
       </table>
 </div>
+<!-- (click) = "additem()" -->
