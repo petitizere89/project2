@@ -69,11 +69,11 @@ public class UserContoller {
 		if(u==null) {
 			return new ResponseEntity<String>("username not found",HttpStatus.I_AM_A_TEAPOT);
 		}else {
-			if(user.get("newUsername")!=null) { u.setUsername(user.get("username"));}
-			if(user.get("newFirstName")!=null) {u.setFirstName(user.get("firstName"));}
+			if(user.get("username")!=null) { u.setUsername(user.get("username"));}
+			if(user.get("firstName")!=null) {u.setFirstName(user.get("firstName"));}
 			if(user.get("newLastName")!=null) {u.setLastName(user.get("lastName"));}
-			if(user.get("newEmail")!=null) {u.setEmail(user.get("email"));}
-			if(user.get("newPassword")!=null) {u.setPassword(user.get("password"));}
+			if(user.get("email")!=null) {u.setEmail(user.get("email"));}
+			if(user.get("password")!=null) {u.setPassword(user.get("password"));}
 			
 			uServ.updateUser(u);
 			return new ResponseEntity<String>("user updated",HttpStatus.ACCEPTED);
