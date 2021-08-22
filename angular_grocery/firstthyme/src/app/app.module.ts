@@ -16,9 +16,9 @@ import { ManagerHomeComponent } from './components/manager-home/manager-home.com
 import { CartComponent } from './components/cart/cart.component';
 import { NavBarManagerComponent } from './components/nav-bar-manager/nav-bar-manager.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
-import { UserService } from './services/user.service';
 import { ItemContainerComponent } from './components/item-container/item-container.component';
 import { NewItemComponent } from './components/new-item/new-item.component';
+import { CustomerInventoryComponent } from './components/customer-inventory/customer-inventory.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,8 @@ import { NewItemComponent } from './components/new-item/new-item.component';
     NavBarManagerComponent,
     InventoryComponent,
     ItemContainerComponent,
-    NewItemComponent
+    NewItemComponent,
+    CustomerInventoryComponent
   ],
   imports: [
     BrowserModule,
