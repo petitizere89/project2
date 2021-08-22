@@ -30,7 +30,7 @@ export class ItemsService {
     this.http.get<Items[]>('http://localhost:8080/items/getitems')
     .subscribe(
       response => {
-        console.log(response);
+        //console.log(response);
         this.items = response;
       }
     );
