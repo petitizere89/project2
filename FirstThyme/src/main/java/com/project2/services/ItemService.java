@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+import com.project2.models.Cart;
 import com.project2.models.Items;
 import com.project2.repository.ItemRepo;
 
@@ -79,5 +79,8 @@ public class ItemService {
 	}
 	public List<Items> getAllItems(){
 		return iDao.findAll();
+	}
+	public List<Items> getAllByCartId(Cart cartId){
+		return iDao.findAllByCart(cartId);
 	}
 }

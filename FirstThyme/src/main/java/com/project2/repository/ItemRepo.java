@@ -5,11 +5,13 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.project2.models.Cart;
 import com.project2.models.Items;
 
 @Repository
 public interface ItemRepo extends JpaRepository<Items, Integer>{
 	public List<Items> findAll();
+	public List<Items> findAllByCart(Cart c);
 	public Items findById(int id);
 	public Items findByItemName(String name);
 }
