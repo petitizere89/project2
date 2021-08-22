@@ -1,12 +1,12 @@
 package com.project2.services;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.project2.enums.ICategory;
 
-import com.project2.models.Category;
 import com.project2.models.Items;
 import com.project2.repository.ItemRepo;
 
@@ -64,5 +64,20 @@ public class ItemService {
 		}else {
 			return i;
 		}
+	}
+	public Items findById(int id) {
+		Items i = iDao.findById(id);
+		if(i==null) {
+			return null;
+		}else {
+			return i;
+		}
+	}
+	
+	public void updateItem(Items i) {
+		iDao.save(i);
+	}
+	public List<Items> getAllItems(){
+		return iDao.findAll();
 	}
 }

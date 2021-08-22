@@ -17,8 +17,17 @@ import { CartComponent } from './components/cart/cart.component';
 import { NavBarManagerComponent } from './components/nav-bar-manager/nav-bar-manager.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { UserService } from './services/user.service';
-import { ItemContainerComponent } from './components/item-container/item-container.component';
-import { NewItemComponent } from './components/new-item/new-item.component';
+
+export class inventory {
+  constructor(
+    public itemName: string,
+    public price: number,
+    public description: string,
+    public category: null,
+    public quantity: number
+  ) {
+  }
+}
 
 @NgModule({
   declarations: [
@@ -33,9 +42,7 @@ import { NewItemComponent } from './components/new-item/new-item.component';
     ManagerHomeComponent,
     CartComponent,
     NavBarManagerComponent,
-    InventoryComponent,
-    ItemContainerComponent,
-    NewItemComponent
+    InventoryComponent
   ],
   imports: [
     BrowserModule,

@@ -1,22 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, Injectable, Input, OnInit } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Component, Input, OnInit } from '@angular/core';
 import { User } from 'src/app/User';
-
-export class user{
-  constructor(
-    public firstName: string,
-    public lastName: string,
-    public email: string,
-    public username: string,
-  ) {
-  }
-}
-
-@Injectable({
-  providedIn: 'root'
-})
 
 @Component({
   selector: 'profile',
@@ -25,9 +8,11 @@ export class user{
 })
 export class ProfileComponent implements OnInit {
 
-  users!: user; 
+// user: any;
+//   @Input('user')
+//   userObj!: User;
 
-constructor(private http: HttpClient) { 
+constructor() { 
 
 }
 
@@ -37,17 +22,17 @@ toogleTag(){
   this.show = !this.show;
 }
 
-update(firstName:string, lastName:string, email:string, password: string): Observable<User>{
-  return this.http.post<User>("http://localhost:8080/users/update", JSON.stringify({firstName, lastName, email, password}),{ 
-      headers: {
-        'Content-Type': 'application/json'
-      }})
-  .pipe(catchError((e) => {
-    return throwError(e);
-  }));
-}
+// Add functions that hide/replace the profile cards on click 
+
+
 
   ngOnInit(): void {
+    // this.user = {
+    //   username : this.userObj.username,
+    //   firstname : this.userObj.firstName,
+    //   lastname: this.userObj.lastName,
+    //   email: this.userObj.email
+    // }
 
   }
 
