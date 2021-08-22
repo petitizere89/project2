@@ -1,9 +1,21 @@
-import { Component, Input, OnInit} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Items } from 'src/app/Items';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { ItemsService } from 'src/app/services/items.service';
+import { Items } from 'src/app/Items';
+import { catchError, retry } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
+
+export class Item {
+  constructor(
+    public itemName: string,
+    public price: number,
+    public description: string,
+    public category: null,
+    public quantity: number
+  ) {
+  }
+}
 
 @Component({
   selector: 'inventory',
@@ -12,20 +24,23 @@ import { catchError } from 'rxjs/operators';
 })
 export class InventoryComponent implements OnInit {
 
-  @Input() items: Items ={
-    itemId: 0,
-    itemName: '',
-    price: 0, 
-    description: '',
-    category: null,
-    quantity: 0
-  }
-
-  constructor(private http: HttpClient) { }
+  items: Item[] = [];
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
-    
+    this.getitems();
+
   }
+  getitems(){
+    this.httpClient.get<any>('http://localhost:8080/items/getitems')
+    .subscribe(
+      response => {
+        console.log(response);
+        this.items = response;
+      }
+    );
+
+    }
 
 }
 
