@@ -1,0 +1,24 @@
+<nav-bar></nav-bar>
+<div class="card-container">
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>Item Name</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Quantity</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- <tr [ngClass] = 'items'> -->
+          <tr *ngFor="let items of items">
+          <td><span>{{items.itemName}}</span></td>
+          <td><span>{{items.price}}</span></td>
+          <td><span>{{items.description}}</span></td>
+          <td><span>{{items.category}}</span></td>
+          <td><span>{{items.quantity}}</span></td>
+          <td><button >Add Item</button></td>
+        </tr>
+        </tbody>
+      </table>

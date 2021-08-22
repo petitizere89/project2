@@ -1,22 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Injectable, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/User';
 
-export class user{
+export class Users{
   constructor(
-    public firstName: string,
-    public lastName: string,
-    public email: string,
     public username: string,
-  ) {
-  }
+    public email: string, 
+    public password: string
+  ){}
 }
-
-@Injectable({
-  providedIn: 'root'
-})
 
 @Component({
   selector: 'profile',
@@ -25,9 +21,18 @@ export class user{
 })
 export class ProfileComponent implements OnInit {
 
-  users!: user; 
+  firstName: string = '';
+  lastName: string = '';
+  oldUsername: string = '';
+  username: string = '';
+  password: string = '';
+  email: string = '';
+  userRole: object = {userrole:''};
+  userrole: string = '';
 
-constructor(private http: HttpClient) { 
+  error: boolean = false;
+
+constructor(private http: HttpClient, private router:Router, private userService:UserService) { 
 
 }
 
@@ -37,18 +42,24 @@ toogleTag(){
   this.show = !this.show;
 }
 
-update(firstName:string, lastName:string, email:string, password: string): Observable<User>{
-  return this.http.post<User>("http://localhost:8080/users/update", JSON.stringify({firstName, lastName, email, password}),{ 
+update(oldUsername:string, username:string, email:string, password:string){
+  return this.http.post<String>("http://localhost:8080/users/update", JSON.stringify({oldUsername, username, email, password}),{ 
       headers: {
         'Content-Type': 'application/json'
       }})
   .pipe(catchError((e) => {
     return throwError(e);
-  }));
+  }))
+  .subscribe(() => true);
 }
 
   ngOnInit(): void {
 
   }
+
+  onSubmit(): void{
+    this.update(this.oldUsername, this.username, this.email, this.password);
+  }
+
 
 }

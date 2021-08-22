@@ -1,4 +1,4 @@
-<!-- <nav-bar></nav-bar> -->
+<nav-bar></nav-bar>
 <div class="card-container">
     <div class="card">
         <h2 class = "card-title">FirstThyme Shopping Cart</h2>
@@ -7,3 +7,24 @@
         <p><button (click) = "toogleTag()">View Cart</button></p>
     </div>
 </div>
+
+<div *ngIf = "show" class="card-container">
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>Item Name</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Quantity</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let items of items">
+        <td><span>{{items.itemName}}</span></td>
+        <td><span>{{items.price}}</span></td>
+        <td><span>{{items.description}}</span></td>
+        <td><span>{{items.category}}</span></td>
+        <td><span>{{items.quantity}}</span></td>
+    </tr>
+    </tbody>

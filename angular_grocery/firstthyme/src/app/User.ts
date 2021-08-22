@@ -4,6 +4,7 @@ export interface User{
     lastName?: string,
     email?: string,
     password?: string,
+    oldUsername?: string,
     username?: string,
     userRole?: any,
     userrole?: string
