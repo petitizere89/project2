@@ -18,7 +18,7 @@
           background-position: 0% 50%;
       }
   } */
-  body{
+  body, html{
     margin: 0;
 } 
 

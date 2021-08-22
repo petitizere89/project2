@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
+  show:boolean = false;
+
+toogleTag(){
+  this.show = !this.show;
+}
+
   constructor() { }
 
   ngOnInit(): void {
