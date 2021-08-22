@@ -6,9 +6,10 @@ import { SignupPageComponent } from './components/signup-page/signup-page.compon
 import { ProfileComponent } from './components/profile/profile.component';
 import { ManagerHomeComponent } from './components/manager-home/manager-home.component';
 import { CartComponent } from './components/cart/cart.component';
+import { HomeGuard } from './gurads/home.guard';
 
 const routes: Routes = [
-  {path:'home', component:HomePageComponent},
+  {path:'home', component:HomePageComponent, canActivate: [HomeGuard]},
   {path:'login', component:LoginPageComponent},
   {path:'signup', component:SignupPageComponent},
   {path: 'profile', component:ProfileComponent},
