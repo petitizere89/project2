@@ -44,9 +44,8 @@ public class Items {
 	@Column(name="description")
 	private String description;
 	
-	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="category")
-	private Category category;
+	private String category;
 	
 	@Column(name="quantity")
 	private int quantity;
@@ -55,7 +54,7 @@ public class Items {
 	@JoinColumn(name="cart_id", nullable=true)
 	private Cart cart;
 
-	public Items(String itemName, double price, String description, Category category, int quantity) {
+	public Items(String itemName, double price, String description, String category, int quantity) {
 		super();
 		this.itemName = itemName;
 		this.price = price;

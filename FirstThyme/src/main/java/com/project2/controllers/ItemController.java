@@ -14,11 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project2.enums.ICategory;
-import com.project2.models.Category;
 import com.project2.models.Items;
 import com.project2.services.ItemService;
-import com.project2.services.UserService;
+import com.project2.services.JavaMailService;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -30,37 +28,38 @@ import lombok.NoArgsConstructor;
 @CrossOrigin(value = "*")
 public class ItemController {
 	private ItemService iServ;
+	private JavaMailService jmserv;
 	
 	//this may cause issues/not work
 	@PostMapping("/createitem")
 	public ResponseEntity<String> createItem(@RequestBody LinkedHashMap<String,String>item){
-		Category cat = new Category();
-		switch(item.get("category")) {
-		case "MEAT":
-			cat.setCategory(ICategory.MEAT);
-			break;
-		case "FRUIT":
-			cat.setCategory(ICategory.FRUIT);
-			break;
-		case "VEGETABLES":
-			cat.setCategory(ICategory.VEGETABLES);
-			break;
-		case "HERB":
-			cat.setCategory(ICategory.HERB);
-			break;
-		case "BREAD":
-			cat.setCategory(ICategory.BREAD);
-			break;
-		case "FROZEN":
-			cat.setCategory(ICategory.FROZEN);
-			break;
-		case "BAKERY":
-			cat.setCategory(ICategory.BAKERY);
-			break;
-		default : 
-			return new ResponseEntity<String>("incorrect category for item recieved", HttpStatus.BAD_REQUEST);
-		}
-		Items i = new Items(item.get("itemName"),Double.parseDouble(item.get("price")),item.get("description"),cat,Integer.parseInt(item.get("quantity")));
+//		Category cat = new Category();
+//		switch(item.get("category")) {
+//		case "MEAT":
+//			cat.setCategory(ICategory.MEAT);
+//			break;
+//		case "FRUIT":
+//			cat.setCategory(ICategory.FRUIT);
+//			break;
+//		case "VEGETABLES":
+//			cat.setCategory(ICategory.VEGETABLES);
+//			break;
+//		case "HERB":
+//			cat.setCategory(ICategory.HERB);
+//			break;
+//		case "BREAD":
+//			cat.setCategory(ICategory.BREAD);
+//			break;
+//		case "FROZEN":
+//			cat.setCategory(ICategory.FROZEN);
+//			break;
+//		case "BAKERY":
+//			cat.setCategory(ICategory.BAKERY);
+//			break;
+//		default : 
+//			return new ResponseEntity<String>("incorrect category for item recieved", HttpStatus.BAD_REQUEST);
+//		}
+		Items i = new Items(item.get("itemName"),Double.parseDouble(item.get("price")),item.get("description"),item.get("category"),Integer.parseInt(item.get("quantity")));
 		System.out.println(i);
         iServ.createItem(i);
         return new ResponseEntity<String>("item created",HttpStatus.ACCEPTED);
@@ -78,6 +77,11 @@ public class ItemController {
 		}
 		System.out.println(i);
         iServ.updateItem(i);
+        try {
+			jmserv.sendEmail();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
         return new ResponseEntity<String>("item updated successfully",HttpStatus.ACCEPTED);
 	}
 	
