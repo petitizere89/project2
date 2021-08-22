@@ -23,6 +23,7 @@ export class Item {
   styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent implements OnInit {
+    userId: number = 0; 
 
   // @Input() items: Items ={
     itemId: number = 0;
@@ -64,9 +65,28 @@ export class InventoryComponent implements OnInit {
     this.getitems();
   }
 
+additem(username: any, itemId: number){
+  return this.httpClient.post<String>("http://localhost:8080/cart/additem", JSON.stringify({username, itemId}),{
+    headers: {
+    'Content-Type': 'application/json',
+      }
+    })
+  .pipe(catchError((e) => {
+    return throwError(e);
+  }))
+  .subscribe(() => true);
+} 
+
+
   onSubmit(): void{
     this.createItem(this.itemName,this.price,this.description, this.category, this.quantity);
     this.router.navigateByUrl('/managerhome');
+  }
+
+  onAddItem(): void{
+   let username = localStorage.getItem('username');
+    this.additem(username, this.itemId);
+    this.router.navigateByUrl('/cart');
   }
 
 }

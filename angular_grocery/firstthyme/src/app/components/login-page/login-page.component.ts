@@ -25,8 +25,10 @@ export class LoginPageComponent implements OnInit {
         this.userService.user = {
         id: data.id,
         username: data.username,
-        userRole: data.userRole
+        userRole: data.userRole,
       }
+      localStorage.setItem('username', this.username);
+      // console.log(localStorage.getItem('username'));
       this.error = false;
       if(data.userRole == "MANAGER"){
         this.router.navigateByUrl('/managerhome');
@@ -40,6 +42,7 @@ export class LoginPageComponent implements OnInit {
   
 
   ngOnInit(): void {
+
   }
 
 }
