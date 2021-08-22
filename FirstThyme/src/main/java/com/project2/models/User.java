@@ -56,8 +56,9 @@ public class User {
 	@JoinColumn(name="cart_id",nullable=false)
 	private Cart cart;
 	
-	@Column(name ="user_role")
-	private String userRole;
+	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name ="user_role")
+	private UserRoles user_role;
 
 	//CREATE USER CONSTRUCTOR/signup
 	public User(String firstName, String lastName, String email, String password) {
@@ -69,14 +70,5 @@ public class User {
 		this.balance = 1000.10;
 		this.password = password;
 	}
-	public User(String firstName, String lastName, String email, String password, String userRole) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.username = "" + firstName + lastName;
-		this.email = email;
-		this.balance = 1000.10;
-		this.password = password;
-		this.userRole = userRole;
-	}
+
 }

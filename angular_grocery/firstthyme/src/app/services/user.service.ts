@@ -28,26 +28,29 @@ export class UserService {
   }
 
 
-  signup(firstName:string, lastName:string, email:string, password: string): Observable<User>{
-    return this.http.post<User>("http://localhost:8080/users/signup", JSON.stringify({firstName, lastName, email, password}),{ 
-        headers: {
-          'Content-Type': 'application/json'
-        }})
+  signup(firstName:string, lastName:string, email:string, password: string) {
+    return this.http.post<String>("http://localhost:8080/users/signup", JSON.stringify({firstName, lastName, email, password}),{   
+      headers: {
+          'Content-Type': 'application/json',
+        }
+      })
     .pipe(catchError((e) => {
       return throwError(e);
-    }));
+    }))
+    .subscribe(() => true);
+    
   }
 
   //might need to change
-  update(firstName:string, lastName:string, email:string, password: string): Observable<User>{
-    return this.http.post<User>("http://localhost:8080/users/update", JSON.stringify({firstName, lastName, email, password}),{ 
-        headers: {
-          'Content-Type': 'application/json'
-        }})
-    .pipe(catchError((e) => {
-      return throwError(e);
-    }));
-  }
+  // update(firstName:string, lastName:string, email:string, password: string): Observable<User>{
+  //   return this.http.post<User>("http://localhost:8080/users/update", JSON.stringify({firstName, lastName, email, password}),{ 
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       }})
+  //   .pipe(catchError((e) => {
+  //     return throwError(e);
+  //   }));
+  // }
 
    constructor(private http: HttpClient) { }
 }

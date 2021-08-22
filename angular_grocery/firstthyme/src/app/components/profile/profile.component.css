@@ -1,5 +1,8 @@
 .card-container{
-    margin: 150px;
+  /* margin: 10px 20px; */
+  margin: 0;
+  display: flexbox;
+  justify-content: space-between;
 }
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -8,6 +11,13 @@
     text-align: center;
     border-radius: 5px;
   }
+ .card-title{
+  text-align: center;
+  margin: 10px 0 11px 0;
+  padding: 10px;
+  background-color: var(--fourth-color);
+  color: var(--primary-color);
+ }
   
   .title {
     color: grey;
