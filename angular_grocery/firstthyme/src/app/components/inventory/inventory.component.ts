@@ -51,8 +51,6 @@ export class InventoryComponent implements OnInit {
 
     }
 
-
-
   createItem(itemName:string, price:number, description:string, category: string, quantity: number) {
     return this.httpClient.post<String>("http://localhost:8080/items/createitem", JSON.stringify({itemName, price, description, category,quantity}),{   
       headers: {
