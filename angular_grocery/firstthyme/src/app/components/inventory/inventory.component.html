@@ -52,8 +52,33 @@
            </div>
 
          </form>
-       
        </div>
+
+       <!-- START OF UPDATE ITEM -->
+       <div id="id03" class="modal">
+        <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+       <form id = "createItem" class="modal-content" action="/action_page.php" (ngSubmit)="onSubmit()">
+         <div class="container">
+           <h1>update item</h1>
+           <p>Please fill in this form to update an item in the inventory.</p>
+           <hr>
+           <label id = "itemName" for="itemname"><b>Item Name</b></label> 
+           <input type="text" placeholder="Enter Item Name" name="itemname" required [(ngModel)]="itemName"> <br>
+
+           <label for="quantity"><b>Quantity</b></label> 
+           <input type="text" placeholder="Enter quantity" name="quantity" required [(ngModel)]="quantity"> <br>
+
+           <div class="clearfix">
+             <button type="button" onclick="document.getElementById('id03').style.display='none'" class="cancelbtn">Cancel</button>
+             <button type="submit" class="updatebtn" value = "Updateinventory">Update Item</button>
+           </div>
+         </div>
+
+       </form>
+
+     </div>
+
+     <!-- END OF UPDATE ITEM -->
 
 </div>
 <!-- (click) = "additem()" -->
