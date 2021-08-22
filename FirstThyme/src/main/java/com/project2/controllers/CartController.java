@@ -89,10 +89,8 @@ public class CartController {
 				e.printStackTrace();
 				return new ResponseEntity<String>("Update user failed or not enough money",HttpStatus.CONFLICT);
 			}
-			
 		}else {
 			return new ResponseEntity<String>("Items quantity does not suffice be less greedy",HttpStatus.NOT_ACCEPTABLE);
 		}
 	}
-	
 }

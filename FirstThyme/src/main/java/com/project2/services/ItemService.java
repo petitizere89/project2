@@ -6,9 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.project2.enums.ICategory;
 
-import com.project2.models.Category;
+
 import com.project2.models.Items;
 import com.project2.repository.ItemRepo;
 
