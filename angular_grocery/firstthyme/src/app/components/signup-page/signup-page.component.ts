@@ -19,20 +19,9 @@ export class SignupPageComponent implements OnInit {
 
   onSubmit(): void{
     console.log(this.firstName, this.lastName, this.email, this.password);
-    this.userService.signup(this.firstName, this.lastName, this.email, this.password)
-      .subscribe(data => {this.userService.user = {
-        id: data.id,
-        firstName: data.firstName,
-        lastName: data.lastName,
-        email: data.email,
-        // username: data.username,
-        password: data.password
-      }
-      this.error = false;
-      //Is this the correct url?
-      this.router.navigateByUrl('/home');
-    },
-      (error) => this.error=true);
+    if(this.userService.signup(this.firstName, this.lastName, this.email, this.password)){
+        this.router.navigateByUrl('/home');
+    }
   }
 
   ngOnInit(): void {

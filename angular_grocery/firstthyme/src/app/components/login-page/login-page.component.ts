@@ -11,24 +11,33 @@ export class LoginPageComponent implements OnInit {
 
   username: string = '';
   password: string = '';
+  userRole: object = {userrole:''};
+  userrole: string = '';
   error: boolean = false;
 
   constructor(private userService:UserService, private router:Router) { }
 
   onSubmit(): void{
     console.log(this.username, this.password);
-    this.userService.login(this.username, this.password)
+    this.userService.login(this.username, this.password, this.userrole)
       .subscribe(data => {
         console.log(data);
         this.userService.user = {
         id: data.id,
-        username: data.username
+        username: data.username,
+        userRole: data.userRole
       }
       this.error = false;
-      this.router.navigateByUrl('/home');
+      if(data.userRole == "MANAGER"){
+        this.router.navigateByUrl('/managerhome');
+      } else{
+        this.router.navigateByUrl('/home');
+      }
+
     },
       (error) => this.error=true);
   }
+  
 
   ngOnInit(): void {
   }

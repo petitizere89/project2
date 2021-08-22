@@ -1,0 +1,5 @@
+.card-container{
+  margin:0;
+  display: flexbox;
+  justify-content: space-between;
+  }

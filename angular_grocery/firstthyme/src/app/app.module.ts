@@ -11,7 +11,14 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { ServicesComponent } from './services/services.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-
+import { ProfileComponent } from './components/profile/profile.component';
+import { ManagerHomeComponent } from './components/manager-home/manager-home.component';
+import { CartComponent } from './components/cart/cart.component';
+import { NavBarManagerComponent } from './components/nav-bar-manager/nav-bar-manager.component';
+import { InventoryComponent } from './components/inventory/inventory.component';
+import { UserService } from './services/user.service';
+import { ItemContainerComponent } from './components/item-container/item-container.component';
+import { NewItemComponent } from './components/new-item/new-item.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +28,14 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     SignupPageComponent,
     HomePageComponent,
     ServicesComponent,
-    NavBarComponent
+    NavBarComponent,
+    ProfileComponent,
+    ManagerHomeComponent,
+    CartComponent,
+    NavBarManagerComponent,
+    InventoryComponent,
+    ItemContainerComponent,
+    NewItemComponent
   ],
   imports: [
     BrowserModule,

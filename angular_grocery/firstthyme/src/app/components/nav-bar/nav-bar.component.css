@@ -1,17 +1,9 @@
-:root{
-    --primary-color:rgb(235, 235, 235);
-    --secondary-color: rgb(220, 226, 170);
-    --third-color:  rgb(142, 208, 129);
-    --fourth-color: rgb(86, 95, 68);
-
-}
-
 nav{
-    position: fixed;
+    /* position: fixed; */
     margin: 0;
     width: 100%;
     overflow: hidden;
-    background-color: var(--fourth-color);
+    background: linear-gradient(90deg, var(--fourth-color) 45%, var(--third-color) 60%, var(--primary-color) 100%);
 }
 
 ul {
@@ -32,10 +24,10 @@ ul {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    background-color: var(--fourth-color);
+    background-color: rgb(19, 42, 19, 0.45);
   }
   
   li a:hover {
-    background-color: var(--secondary-color);
+    background-color: var(--third-color);
     color: var(--fourth-color);
   }
