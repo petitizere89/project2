@@ -77,11 +77,11 @@ public class ItemController {
 		}
 		System.out.println(i);
         iServ.updateItem(i);
-        try {
-			jmserv.sendEmail();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//        try {
+//			jmserv.sendEmail();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
         return new ResponseEntity<String>("item updated successfully",HttpStatus.ACCEPTED);
 	}
 	

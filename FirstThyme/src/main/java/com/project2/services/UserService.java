@@ -91,6 +91,16 @@ public class UserService {
 		return uDao.getById(id);
 	}
 	public User findByUsername(String username) {
-		return uDao.findByUsername(username);
+		try {
+			User u = uDao.findByUsername(username);
+			if(u==null) {
+				return null;
+			}else {
+				return u;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

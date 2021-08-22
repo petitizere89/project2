@@ -7,6 +7,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 
+
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -18,12 +19,12 @@ public class JavaMailService {
 	private JavaMailSender javaMailSender;
 	
 	
-	@Bean
-	public void sendEmail()throws Exception{
+	
+	public void sendEmail(String to,String message)throws Exception{
 		SimpleMailMessage mail = new SimpleMailMessage();
-		mail.setTo("thymefirst39@gmail.com");
-		mail.setSubject("testing mail");
-		mail.setText("we heckin got here bois!!!!!");
+		mail.setTo(to);
+		mail.setSubject("receipt from firstThyme");
+		mail.setText(message);
 		
 		javaMailSender.send(mail);
 	}
