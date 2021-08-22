@@ -103,4 +103,7 @@ public class UserService {
 			return null;
 		}
 	}
+	public User getByUsername(String uName) {
+		return uDao.findByUsername(uName);
+	}
 }
