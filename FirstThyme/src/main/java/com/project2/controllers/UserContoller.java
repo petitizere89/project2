@@ -64,15 +64,16 @@ public class UserContoller {
 	@PostMapping("/update")
 	public ResponseEntity<String> updateUser(@RequestBody LinkedHashMap<String, String>user){
 		System.out.println(user);
-		User u = uServ.findByUsername(user.get("username"));
+		System.out.println("anything");
+		User u = uServ.findByUsername(user.get("oldUsername"));
 		if(u==null) {
 			return new ResponseEntity<String>("username not found",HttpStatus.I_AM_A_TEAPOT);
 		}else {
-			if(user.get("newUsername")!=null) { u.setUsername(user.get("newUsername"));}
-			if(user.get("newFirstName")!=null) {u.setFirstName(user.get("newFirstName"));}
-			if(user.get("newLastName")!=null) {u.setLastName(user.get("newLastName"));}
-			if(user.get("newEmail")!=null) {u.setEmail(user.get("newEmail"));}
-			if(user.get("newPassword")!=null) {u.setPassword(user.get("newPassword"));}
+			if(user.get("username")!=null) { u.setUsername(user.get("username"));}
+			if(user.get("firstName")!=null) {u.setFirstName(user.get("firstName"));}
+			if(user.get("newLastName")!=null) {u.setLastName(user.get("lastName"));}
+			if(user.get("email")!=null) {u.setEmail(user.get("email"));}
+			if(user.get("password")!=null) {u.setPassword(user.get("password"));}
 			
 			uServ.updateUser(u);
 			return new ResponseEntity<String>("user updated",HttpStatus.ACCEPTED);

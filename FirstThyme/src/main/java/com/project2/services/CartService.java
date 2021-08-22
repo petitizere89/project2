@@ -20,8 +20,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor(onConstructor=@__(@Autowired))
 public class CartService {
-	private ItemRepo iDao;
-	private UserRepo uDao;
+//	private ItemRepo iDao;
+//	private UserRepo uDao;
 	private CartRepo cDao;
 	
 	public void addItem(User u, Items i) {
