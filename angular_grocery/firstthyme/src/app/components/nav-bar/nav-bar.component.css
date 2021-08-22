@@ -1,0 +1,33 @@
+nav{
+    /* position: fixed; */
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+    background: linear-gradient(90deg, var(--fourth-color) 45%, var(--third-color) 60%, var(--primary-color) 100%);
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    margin: auto;
+    display: inline-block;
+    color: var( --primary-color);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: rgb(19, 42, 19, 0.45);
+  }
+  
+  li a:hover {
+    background-color: var(--third-color);
+    color: var(--fourth-color);
+  }
