@@ -28,9 +28,8 @@ export class LoginPageComponent implements OnInit {
         userRole: data.userRole
       }
       this.error = false;
-      if(this.userService.user.userRole.userrole == "MANAGER"){
-        //Create proper routing for manager
-        this.router.navigateByUrl('/signup');
+      if(data.userRole == "MANAGER"){
+        this.router.navigateByUrl('/managerhome');
       } else{
         this.router.navigateByUrl('/home');
       }

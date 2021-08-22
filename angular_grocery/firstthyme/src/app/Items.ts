@@ -1,6 +1,6 @@
 export interface Items{
     itemId?: number,
-    name?: string,
+    itemName?: string,
     price?: number,
     description?: string,
     category?: any, 
