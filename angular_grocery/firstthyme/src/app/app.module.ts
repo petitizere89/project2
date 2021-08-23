@@ -20,6 +20,7 @@ import { ItemContainerComponent } from './components/item-container/item-contain
 import { NewItemComponent } from './components/new-item/new-item.component';
 import { CustomerInventoryComponent } from './components/customer-inventory/customer-inventory.component';
 import { StorageServiceModule } from  'ngx-webstorage-service';
+import { DisplayImageComponent } from './display-image/display-image.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { StorageServiceModule } from  'ngx-webstorage-service';
     InventoryComponent,
     ItemContainerComponent,
     NewItemComponent,
-    CustomerInventoryComponent
+    CustomerInventoryComponent,
+    DisplayImageComponent
   ],
   imports: [
     BrowserModule,
