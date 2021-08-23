@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project2.models.User;
-
+import com.project2.services.JavaMailService;
 import com.project2.services.UserService;
 
 import lombok.AllArgsConstructor;
@@ -33,13 +33,20 @@ import lombok.NoArgsConstructor;
 @CrossOrigin(value = "*")
 public class UserContoller {
 	private UserService uServ;
-
+	private JavaMailService jmServ;
 	@PostMapping("/signup")
 	public ResponseEntity<String> createUser(@RequestBody LinkedHashMap<String,String>user){
 		
 		//User u = new User(user.get("firstName"),user.get("lastName"),user.get("email"),user.get("password"),"CUSTOMER");
 		User u = new User(user.get("firstName"),user.get("lastName"),user.get("email"),user.get("password"),"MANAGER");
 		if(uServ.createUser(u)) {
+			try {
+				jmServ.sendEmail(u.getEmail(),"Welcome to firstThyme","Thank you for Signing up!\nYour username for login will be "+u.getUsername()+
+						"\n use this with your password to login and start shopping");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			return new ResponseEntity<String>("User was registered",HttpStatus.CREATED);
 		}else {
 			return new ResponseEntity<String>("Username or email was already taken", HttpStatus.CONFLICT);

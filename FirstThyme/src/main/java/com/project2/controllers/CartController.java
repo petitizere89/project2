@@ -102,7 +102,7 @@ public class CartController {
 	
 	@PostMapping(value="/usertransaction")
 	public ResponseEntity<String> doUserTransaction(@RequestBody LinkedHashMap<String, String>req){
-		User u = uServ.getUserById(Integer.parseInt(req.get("userId")));
+		User u = uServ.getByUsername(req.get("username"));
 		Cart c =  u.getCart();
 		List<Items> list = iServ.getAllByCartId(c);
 		System.out.println(list);
@@ -124,7 +124,7 @@ public class CartController {
 				c.setItems(new ArrayList<Items>());
 			}
 			try {
-				jmserv.sendEmail(u.getEmail(),"Thank you for purchasing from firstThyme\nYour total today was "+total);
+				jmserv.sendEmail(u.getEmail(),"receipt from firstThyme","Thank you for purchasing from firstThyme\nYour total today was "+total);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
