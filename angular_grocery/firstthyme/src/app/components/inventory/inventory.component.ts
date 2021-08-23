@@ -98,7 +98,7 @@ upateItem(itemName: string, quantity: number){
     }else{
       this.createItem(this.itemName,this.price,this.description, this.category, this.quantity);
     }
-    this.router.navigateByUrl('/managerhome');
+     this.router.navigateByUrl('/managerhome');
   }
   
   

@@ -9,6 +9,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { HomeGuard } from './gurads/home.guard';
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { CustomerInventoryComponent } from './components/customer-inventory/customer-inventory.component';
+import { ManagerProfileComponent } from './components/manager-profile/manager-profile.component';
 
 const routes: Routes = [
   {path:'home', component:HomePageComponent, canActivate: [HomeGuard]},
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'cart', component:CartComponent},
   {path: 'viewinventory', component:InventoryComponent},
   {path: 'customerinventory', component:CustomerInventoryComponent},
+  {path: 'managerprofile' , component:ManagerProfileComponent},
   {path: '', redirectTo: '/login', pathMatch: 'full'}
 
 ];
