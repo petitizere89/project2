@@ -5,6 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import {ItemsService } from 'src/app/services/items.service'
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 
 export class Item {
@@ -35,7 +36,7 @@ export class InventoryComponent implements OnInit {
   // }
 
   items: Item[] = [];
-  constructor(private httpClient: HttpClient, private router:Router) { }
+  constructor(private httpClient: HttpClient, private router:Router, private userService:UserService,) { }
  
   ngOnInit(): void {
     this.getitems();
@@ -96,15 +97,17 @@ upateItem(itemName: string, quantity: number){
       this.upateItem( this.itemName,this.quantity );
     }else{
       this.createItem(this.itemName,this.price,this.description, this.category, this.quantity);
-  
     }
     this.router.navigateByUrl('/managerhome');
   }
+  
+  
+  
 
   onAddItem(): void{
    let username = localStorage.getItem('username');
+    console.log(username);
     this.additem(username, this.itemId);
     this.router.navigateByUrl('/cart');
   }
-
 }

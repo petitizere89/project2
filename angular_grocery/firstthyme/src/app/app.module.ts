@@ -19,6 +19,7 @@ import { InventoryComponent } from './components/inventory/inventory.component';
 import { ItemContainerComponent } from './components/item-container/item-container.component';
 import { NewItemComponent } from './components/new-item/new-item.component';
 import { CustomerInventoryComponent } from './components/customer-inventory/customer-inventory.component';
+import { StorageServiceModule } from  'ngx-webstorage-service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { CustomerInventoryComponent } from './components/customer-inventory/cust
     BrowserModule,
     AppRoutingModule, 
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    StorageServiceModule
   ],
   providers: [],
   bootstrap: [AppComponent]
