@@ -41,16 +41,5 @@ export class UserService {
     
   }
 
-  //might need to change
-  // update(firstName:string, lastName:string, email:string, password: string): Observable<User>{
-  //   return this.http.post<User>("http://localhost:8080/users/update", JSON.stringify({firstName, lastName, email, password}),{ 
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       }})
-  //   .pipe(catchError((e) => {
-  //     return throwError(e);
-  //   }));
-  // }
-
    constructor(private http: HttpClient) { }
 }
